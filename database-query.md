@@ -40,8 +40,35 @@ WHERE
 Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del
 20/06/2020 (21)
 
+```sql
+SELECT COUNT(*)
+FROM `exams`
+WHERE
+	DATE(`date`) = "2020-06-20"
+    AND TIME(`hour`) > "14:00:00";
+```
+
 Selezionare tutti i corsi di laurea magistrale (38)
+
+```sql
+SELECT COUNT(*)
+FROM `degrees`
+WHERE
+	`name` LIKE "%Magistrale%";
+```
 
 Da quanti dipartimenti è composta l'università? (12)
 
+```sql
+SELECT COUNT(`id`)
+FROM `departments`;
+```
+
 Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+
+```sql
+SELECT COUNT(`id`)
+FROM `teachers`
+WHERE
+	`phone` IS NULL;
+```
